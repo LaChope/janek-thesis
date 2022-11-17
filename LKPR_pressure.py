@@ -22,9 +22,7 @@ def get_mean_value(dataframe):
 def get_pressure_dataframe(file):
     data = pd.DataFrame(pd.read_csv(file, delimiter='\t', engine="python", skiprows=1))
     data = clean_dataset(data)
-    # df = get_mean_value(df)
     data = pd.DataFrame(data)
-    # df.insert(0, "Time (h)", (df.index * 30) / 60)
     return data
 
 
@@ -37,4 +35,4 @@ if __name__ == '__main__':
     plt.scatter(concat_df[CREATE_DATE], concat_df[KEY])
     plt.ylabel(KEY)
     plt.show()
-    concat_df.to_excel("./PRESSURE.xlsx")
+    concat_df.to_excel("./LKPR_PRESSURE.xlsx")
