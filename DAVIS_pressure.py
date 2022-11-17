@@ -11,7 +11,6 @@ CREATE_DATE = "CREATEDATE"
 def clean_dataset(dataframe):
     dataframe[CREATE_DATE] = dataframe[DATE].astype(str) + " " + dataframe[TIME]
     dataframe[CREATE_DATE] = pd.to_datetime(dataframe[CREATE_DATE], infer_datetime_format=True)
-    print(dataframe)
     return dataframe[[CREATE_DATE, KEY]]
 
 
@@ -27,9 +26,9 @@ def get_pressure_dataframe(file):
     return data
 
 
-if __name__ == '__main__':
-    df = get_pressure_dataframe(DATA)
-    plt.scatter(df[CREATE_DATE], df[KEY])
-    plt.ylabel("Pressure (HPA)")
-    plt.show()
-    df.to_excel("./DAVIS_PRESSURE.xlsx")
+def get_full_dataframe():
+    return get_pressure_dataframe(DATA)
+#     plt.scatter(df[CREATE_DATE], df[KEY])
+#     plt.ylabel("Pressure (HPA)")
+#     plt.show()
+#     df.to_excel("./DAVIS_PRESSURE.xlsx")

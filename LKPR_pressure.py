@@ -26,13 +26,13 @@ def get_pressure_dataframe(file):
     return data
 
 
-if __name__ == '__main__':
+def get_full_dataframe():
     df_list = []
     for i in range(len(BARO_DATA)):
         df = get_pressure_dataframe(str(BARO_DATA[i]))
         df_list.append(df)
-    concat_df = pd.concat(df_list)
-    plt.scatter(concat_df[CREATE_DATE], concat_df[KEY])
-    plt.ylabel(KEY)
-    plt.show()
-    concat_df.to_excel("./LKPR_PRESSURE.xlsx")
+    return pd.concat(df_list)
+    # plt.scatter(concat_df[CREATE_DATE], concat_df[KEY])
+    # plt.ylabel(KEY)
+    # plt.show()
+    # concat_df.to_excel("./LKPR_PRESSURE.xlsx")
