@@ -29,12 +29,12 @@ def get_pressure_dataframe(file):
 
 if __name__ == '__main__':
     df_list = []
-    # for i in range(len(baro_data)):
-    for i in range(2):
+    for i in range(len(TEMP_DATA)):
+    # for i in range(2):
         df = get_pressure_dataframe(str(TEMP_DATA[i]))
         df_list.append(df)
     concat_df = pd.concat(df_list)
     plt.scatter(concat_df[CREATE_DATE], concat_df[KEY])
     plt.ylabel("Temp")
     plt.show()
-    concat_df.to_excel("./TEMPERATURE.xlsx")
+    # concat_df.to_excel("./TEMPERATURE.xlsx")

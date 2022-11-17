@@ -2,11 +2,10 @@ import pandas as pd
 import glob
 import matplotlib.pyplot as plt
 
-BARO_DATA = glob.glob("./data/*/*/BARO/PRESSURE_1_*.his")
-KEY = "PA_QNH (HPA)"
-CREATE_DATE = "CREATEDATE"
+DATA = "./data/DAVIS_2021and22.txt"
+KEY = "Bar  "
+CREATE_DATE = "Date"
 
-print(len(BARO_DATA))
 
 def clean_dataset(dataframe):
     dataframe[CREATE_DATE] = pd.to_datetime(dataframe[CREATE_DATE], infer_datetime_format=True)
@@ -28,13 +27,8 @@ def get_pressure_dataframe(file):
 
 
 if __name__ == '__main__':
-    df_list = []
-    # for i in range(len(BARO_DATA)):
-    for i in range(170):
-        df = get_pressure_dataframe(str(BARO_DATA[i]))
-        df_list.append(df)
-    concat_df = pd.concat(df_list)
-    plt.scatter(concat_df[CREATE_DATE], concat_df[KEY])
+    df = get_pressure_dataframe(DATA)
+    plt.scatter(df[CREATE_DATE], df[KEY])
     plt.ylabel("Pressure (HPA)")
     plt.show()
-    concat_df.to_excel("./PRESSURE.xlsx")
+    df.to_excel("./DAVIS_PRESSURE.xlsx")
