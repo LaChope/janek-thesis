@@ -1,4 +1,8 @@
 import pandas as pd
+import glob
+import matplotlib.pyplot as plt
+
+baro_data = glob.glob("./data/2021/*/BARO/PRESSURE_1_*.xlsx")
 
 def clean_dataset(dataframe):
     dataframe.columns = dataframe.iloc[1]
@@ -22,3 +26,15 @@ def get_pressure_dataframe(file):
     return df
 
 
+if __name__ == '__main__':
+    df_list = []
+    # for i in range(len(baro_data)):
+    for i in range(2):
+        df = get_pressure_dataframe(str(baro_data[i]))
+        df_list.append(df)
+    concat_df = pd.concat(df_list)
+    plt.scatter(concat_df["CREATEDATE"], concat_df["PA_QNH (HPA)"])
+    plt.xlabel("Date")
+    plt.ylabel("Pressure (HPA)")
+    plt.show()
+    concat_df.to_excel("./PRESSURE.xlsx")
