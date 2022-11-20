@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 import glob
 
+from matplotlib import pyplot as plt
+
 BARO_DATA = glob.glob("./data/*/*/BARO/*.his")
 KEY = "PA_QNH (HPA)"
 CREATE_DATE = "CREATEDATE"
@@ -35,7 +37,10 @@ def get_full_dataframe():
         df = get_pressure_dataframe(str(BARO_DATA[i]))
         df_list.append(df)
     return pd.concat(df_list)
+    # concat_df = pd.concat(df_list)
     # plt.scatter(concat_df[CREATE_DATE], concat_df[KEY])
     # plt.ylabel(KEY)
     # plt.show()
     # concat_df.to_excel("./LKPR_PRESSURE.xlsx")
+
+# get_full_dataframe()
