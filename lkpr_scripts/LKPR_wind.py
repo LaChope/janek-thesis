@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 WIND_DATA_06 = glob.glob("./data/*/*/WIND06/*.his")
-WIND_DATA_12 = glob.glob("./data/*/*/WIND012/*.his")
+WIND_DATA_12 = glob.glob("./data/*/*/WIND12/*.his")
 KEY = "WSINS (KT)"
 KEY2 = "WSINS(M/S)"
 CREATE_DATE = "CREATEDATE"
@@ -38,13 +38,21 @@ def get_wind_dataframe(file):
 
 
 def get_full_dataframe():
-    df_list = []
+    df_list_06 = []
+    df_list_12 = []
     for i in range(len(WIND_DATA_06)):
         df = get_wind_dataframe(str(WIND_DATA_06[i]))
-        df_list.append(df)
+        df_list_06.append(df)
+
+    for i in range(len(WIND_DATA_12)):
+        df = get_wind_dataframe(str(WIND_DATA_12[i]))
+        df_list_12.append(df)
     # return pd.concat(df_list)
-    concat_df = pd.concat(df_list)
-    plt.scatter(concat_df[CREATE_DATE], concat_df[KEY])
+    concat_df_06 = pd.concat(df_list_06)
+    concat_df_12 = pd.concat(df_list_12)
+    plt.scatter(concat_df_06[CREATE_DATE], concat_df_06[KEY], label="Site 06")
+    plt.scatter(concat_df_12[CREATE_DATE], concat_df_12[KEY], label="Site 12")
+    plt.legend(loc='upper left')
     plt.ylabel(KEY)
     plt.show()
     # concat_df.to_excel("./LKPR_PRESSURE.xlsx")
