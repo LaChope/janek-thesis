@@ -1,12 +1,12 @@
 import glob
 import matplotlib.pyplot as plt
-import LKPR_pressure
-import DAVIS_pressure
+from lkpr_scripts import LKPR_pressure
+from davis_scripts import DAVIS_pressure
 
-BARO_DATA = glob.glob("./data/*/*/BARO/*.his")
+BARO_DATA_LKPR = glob.glob("./data/*/*/BARO/*.his")
 KEY1 = "PA_QNH (HPA)"
 
-DATA = "./data/DAVIS_2021and22.txt"
+BARO_DATA_DAVIS = "./data/DAVIS_2021and22.txt"
 KEY2 = "Bar  "
 DATE = "Date"
 TIME = "Time"

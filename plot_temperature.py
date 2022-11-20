@@ -1,13 +1,12 @@
 import glob
 import matplotlib.pyplot as plt
-import DAVIS_temperature
-import LKPR_temperature
+from davis_scripts import DAVIS_temperature
+from lkpr_scripts import LKPR_temperature
 
-TEMP_DATA = glob.glob("./data/*/*/TEMP/*.his")
+TEMP_DATA_LKPR = glob.glob("./data/*/*/TEMP/*.his")
 KEY1 = "TH_TT"
 
-
-DATA = "./data/DAVIS_2021and22.txt"
+TEMP_DATA_DAVIS = "./data/DAVIS_2021and22.txt"
 KEY2 = "Temp"
 DATE = "Date"
 TIME = "Time"
