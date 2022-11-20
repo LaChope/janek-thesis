@@ -1,5 +1,3 @@
-import pandas as pd
-import numpy as np
 import glob
 import matplotlib.pyplot as plt
 import LKPR_pressure

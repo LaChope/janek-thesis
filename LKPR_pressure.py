@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import glob
-import matplotlib.pyplot as plt
 
 BARO_DATA = glob.glob("./data/*/*/BARO/*.his")
 KEY = "PA_QNH (HPA)"
@@ -9,13 +8,17 @@ CREATE_DATE = "CREATEDATE"
 
 
 def clean_dataset(dataframe):
+    dataframe = get_mean_value(dataframe)
     dataframe[CREATE_DATE] = pd.to_datetime(dataframe[CREATE_DATE], infer_datetime_format=True)
     dataframe = dataframe[dataframe[KEY].apply(lambda x: isinstance(x, (float, np.float32)))]
     return dataframe[[CREATE_DATE, KEY]]
 
 
 def get_mean_value(dataframe):
-    dataframe["MEAN_30"] = dataframe[KEY].groupby(dataframe[KEY].index // 30).mean()
+    # dataframe["MEAN_30"] = dataframe[KEY].groupby(dataframe[KEY].index // 30).mean()
+    # return dataframe
+
+    dataframe = dataframe.iloc[::30, :]
     return dataframe
 
 
