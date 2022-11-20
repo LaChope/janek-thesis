@@ -1,5 +1,4 @@
 import pandas as pd
-import matplotlib.pyplot as plt
 
 DATA = "./data/DAVIS_2021and22.txt"
 KEY = "Bar  "
@@ -12,11 +11,6 @@ def clean_dataset(dataframe):
     dataframe[CREATE_DATE] = dataframe[DATE].astype(str) + " " + dataframe[TIME]
     dataframe[CREATE_DATE] = pd.to_datetime(dataframe[CREATE_DATE], infer_datetime_format=True)
     return dataframe[[CREATE_DATE, KEY]]
-
-
-def get_mean_value(dataframe):
-    dataframe["MEAN_30"] = dataframe[KEY].groupby(dataframe[KEY].index // 30).mean()
-    return dataframe
 
 
 def get_pressure_dataframe(file):
