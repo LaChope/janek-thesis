@@ -35,9 +35,11 @@ def get_full_dataframe():
     for i in range(len(TEMP_DATA)):
         df = get_pressure_dataframe(str(TEMP_DATA[i]))
         df_list.append(df)
-    return pd.concat(df_list)
-    # concat_df = pd.concat(df_list)
-    # plt.scatter(concat_df[CREATE_DATE], concat_df[KEY])
-    # plt.ylabel("Temp")
-    # plt.show()
-    # concat_df.to_excel("./LKPR_TEMPERATURE.xlsx")
+    # return pd.concat(df_list)
+    concat_df = pd.concat(df_list)
+    plt.scatter(concat_df[CREATE_DATE], concat_df[KEY])
+    plt.ylabel("Temp")
+    plt.show()
+    concat_df.to_excel("./LKPR_TEMPERATURE.xlsx")
+
+get_full_dataframe()

@@ -13,11 +13,14 @@ TIME = "Time"
 CREATE_DATE = "CREATEDATE"
 
 
+#df = dataframe
 davis_df = DAVIS_pressure.get_full_dataframe()
 lkpr_df = LKPR_pressure.get_full_dataframe()
 
-plt.scatter(lkpr_df[CREATE_DATE], lkpr_df[KEY1])
-plt.scatter(davis_df[CREATE_DATE], davis_df[KEY2])
+plt.scatter(lkpr_df[CREATE_DATE], lkpr_df[KEY1], label="LKPR")
+plt.scatter(davis_df[CREATE_DATE], davis_df[KEY2], label="DAVIS")
+plt.legend(loc='upper left')
+
 
 plt.ylabel(KEY1)
 plt.show()

@@ -47,15 +47,15 @@ def get_full_dataframe():
     for i in range(len(WIND_DATA_12)):
         df = get_wind_dataframe(str(WIND_DATA_12[i]))
         df_list_12.append(df)
-    # return pd.concat(df_list)
-    concat_df_06 = pd.concat(df_list_06)
-    concat_df_12 = pd.concat(df_list_12)
-    plt.scatter(concat_df_06[CREATE_DATE], concat_df_06[KEY], label="Site 06")
-    plt.scatter(concat_df_12[CREATE_DATE], concat_df_12[KEY], label="Site 12")
-    plt.legend(loc='upper left')
-    plt.ylabel(KEY)
-    plt.show()
-    # concat_df.to_excel("./LKPR_PRESSURE.xlsx")
+    return [pd.concat(df_list_06), pd.concat(df_list_12)]
+    # concat_df_06 = pd.concat(df_list_06)
+    # concat_df_12 = pd.concat(df_list_12)
+    # plt.scatter(concat_df_06[CREATE_DATE], concat_df_06[KEY], label="Site 06")
+    # plt.scatter(concat_df_12[CREATE_DATE], concat_df_12[KEY], label="Site 12")
+    # plt.legend(loc='upper left')
+    # plt.ylabel(KEY)
+    # plt.show()
+    # concat_df_06.to_excel("./LKPR_WIND.xlsx")
 
 
-get_full_dataframe()
+# get_full_dataframe()

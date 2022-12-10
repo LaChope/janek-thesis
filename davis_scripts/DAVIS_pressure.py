@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 DATA = "./data/DAVIS_2021and22.txt"
 KEY = "Bar  "
@@ -22,7 +23,10 @@ def get_pressure_dataframe(file):
 
 def get_full_dataframe():
     return get_pressure_dataframe(DATA)
-#     plt.scatter(df[CREATE_DATE], df[KEY])
-#     plt.ylabel("Pressure (HPA)")
-#     plt.show()
-#     df.to_excel("./DAVIS_PRESSURE.xlsx")
+    # df= get_pressure_dataframe(DATA)
+    # plt.scatter(df[CREATE_DATE], df[KEY])
+    # plt.ylabel("Pressure (HPA)")
+    # plt.show()
+    # df.to_excel("./DAVIS_PRESSURE.xlsx")
+
+# get_full_dataframe()
