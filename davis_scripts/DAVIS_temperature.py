@@ -29,12 +29,12 @@ def get_temperature_dataframe(file):
 
 
 def get_full_dataframe():
-    # return get_temperature_dataframe(DATA)
-    df = get_temperature_dataframe(DATA)
-    plt.scatter(df[CREATE_DATE], df[KEY])
-    plt.ylabel("Temp")
-    plt.show()
-    df.to_excel("./DAVIS_TEMPERATURE.xlsx")
+    return get_temperature_dataframe(DATA)
+    # df = get_temperature_dataframe(DATA)
+    # plt.scatter(df[CREATE_DATE], df[KEY])
+    # plt.ylabel("Temp")
+    # plt.show()
+    # df.to_excel("./DAVIS_TEMPERATURE.xlsx")
 
 
-get_full_dataframe()
+# get_full_dataframe()

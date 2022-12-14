@@ -21,8 +21,6 @@ def clean_dataset(dataframe):
 
 def get_wind_dataframe(file):
     data = pd.DataFrame(pd.read_csv(file, delimiter='\t', engine="python", skiprows=range(1, 2)))
-    print(data.head())
-    print(data.columns.tolist())
     data = clean_dataset(data)
     data = pd.DataFrame(data)
     return data
