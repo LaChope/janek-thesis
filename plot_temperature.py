@@ -26,9 +26,9 @@ inner_merge["Difference"] = inner_merge[KEY2 + "_x"] - inner_merge[KEY2 + "_y"]
 fig, (a, b) = plt.subplots(2, 1, sharex=True)
 a.scatter(lkpr_df[CREATE_DATE], lkpr_df[KEY2], label="LKPR")
 a.scatter(davis_df[CREATE_DATE], davis_df[KEY2], label="DAVIS")
-a.set_title("LKPR / DAVIS")
+a.set_title("LKPR / DAVIS Temperature")
 
-b.bar(inner_merge[CREATE_DATE], inner_merge["Difference"])
+b.bar(inner_merge[CREATE_DATE], inner_merge["Difference"], width=0.01)
 b.set_title("Difference")
 a.legend(loc='upper left')
 

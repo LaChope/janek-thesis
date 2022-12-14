@@ -33,18 +33,18 @@ inner_merge_12["Difference"] = inner_merge_12[DAVIS_KEY + "_x"] - inner_merge_12
 fig, ax = plt.subplots(2, 2, sharex=True)
 ax[0][0].scatter(lkpr_df_06[CREATE_DATE], lkpr_df_06[DAVIS_KEY], label="LKPR 06")
 ax[0][0].scatter(davis_df[CREATE_DATE], davis_df[DAVIS_KEY], label="DAVIS")
-ax[0][0].set_title("LKPR 06 / DAVIS")
+ax[0][0].set_title("LKPR 06 / DAVIS Wind Speed")
 ax[0][0].legend(loc='upper left')
 
-ax[1][0].bar(inner_merge_06[CREATE_DATE], inner_merge_06["Difference"])
+ax[1][0].bar(inner_merge_06[CREATE_DATE], inner_merge_06["Difference"], width=0.01)
 ax[1][0].set_title("Difference")
 
 ax[0][1].scatter(lkpr_df_12[CREATE_DATE], lkpr_df_12[DAVIS_KEY], label="LKPR 12")
 ax[0][1].scatter(davis_df[CREATE_DATE], davis_df[DAVIS_KEY], label="DAVIS")
-ax[0][1].set_title("LKPR 12 / DAVIS")
+ax[0][1].set_title("LKPR 12 / DAVIS Wind Speed")
 ax[0][1].legend(loc='upper left')
 
-ax[1][1].bar(inner_merge_12[CREATE_DATE], inner_merge_12["Difference"])
+ax[1][1].bar(inner_merge_12[CREATE_DATE], inner_merge_12["Difference"], width=0.01)
 ax[1][1].set_title("Difference")
 
 
@@ -53,14 +53,6 @@ ax[0][1].set_ylabel(LKPR_KEY)
 ax[1][0].set_ylabel(LKPR_KEY)
 ax[1][1].set_ylabel(LKPR_KEY)
 plt.show()
-
-# plt.scatter(davis_df[CREATE_DATE], davis_df[DAVIS_KEY], label="DAVIS")
-#
-# plt.scatter(lkpr_df[0][CREATE_DATE], lkpr_df[0][LKPR_KEY], label="LKPR Site 06")
-# plt.scatter(lkpr_df[1][CREATE_DATE], lkpr_df[1][LKPR_KEY], label="LKPR Site 12")
-# plt.legend(loc='upper left')
-# plt.ylabel(LKPR_KEY)
-# plt.show()
 
 
 
